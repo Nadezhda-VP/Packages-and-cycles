@@ -7,16 +7,18 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 
 public class RestServicesTest {
-    @Test
-    public void restServices(){
+    //@ParameterizedTest()
+    //@CsvSource({"3,10_000,3_000,20_000,"})
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/restTest.scv")
+    public void restServices(int expected, int income, int expenses, int threshold) {
         RestServices services = new RestServices();
-        int income = 10_000;
-        int expenses = 3_000;
-        int threshold = 20_000;
-        int expected = 3;
         int actual = services.calculate(income,expenses,threshold);
+
         Assertions.assertEquals(actual,expected);
+
     }
+
 
 
 }
