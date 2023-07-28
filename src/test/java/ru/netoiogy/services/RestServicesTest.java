@@ -13,12 +13,11 @@ public class RestServicesTest {
     @CsvFileSource(files = "src/test/resources/restTest.scv")
     public void restServices(int expected, int income, int expenses, int threshold) {
         RestServices services = new RestServices();
-        int actual = services.calculate(income,expenses,threshold);
+        int actual = services.calculate(income, expenses, threshold);
 
-        Assertions.assertEquals(actual,expected);
+        Assertions.assertEquals(actual, expected);
 
     }
-
 
 
 }
